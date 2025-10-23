@@ -1,4 +1,4 @@
-package getxPatternArchitecture.getx_pattern_architecture
+package com.todo.list.sqlite
 
 import io.flutter.embedding.android.FlutterActivity
 

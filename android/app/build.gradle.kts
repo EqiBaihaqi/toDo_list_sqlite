@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "getxPatternArchitecture.getx_pattern_architecture"
+    namespace = "com.todo.list.sqlite"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -21,7 +21,7 @@ android {
 
     defaultConfig {
         // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "getxPatternArchitecture.getx_pattern_architecture"
+        applicationId = "com.todo.list.sqlite"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = 24
