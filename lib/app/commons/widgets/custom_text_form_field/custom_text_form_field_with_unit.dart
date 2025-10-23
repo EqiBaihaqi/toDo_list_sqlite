@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:getx_pattern_architecture/app/core/app_colors.dart';
-import 'package:getx_pattern_architecture/app/core/app_text_styles.dart';
+import 'package:todo_list_sqlite/app/core/app_colors.dart';
+import 'package:todo_list_sqlite/app/core/app_text_styles.dart';
 import 'custom_text_form_field.dart';
 
 enum UnitPosition { prefix, suffix }
@@ -38,11 +38,13 @@ class CustomTextFieldWithUnit extends StatelessWidget {
         color: unitColor ?? AppColors.colorGrey500,
         borderRadius: BorderRadius.only(
           topLeft: unitPosition == UnitPosition.prefix ? radius : Radius.zero,
-          bottomLeft:
-              unitPosition == UnitPosition.prefix ? radius : Radius.zero,
+          bottomLeft: unitPosition == UnitPosition.prefix
+              ? radius
+              : Radius.zero,
           topRight: unitPosition == UnitPosition.suffix ? radius : Radius.zero,
-          bottomRight:
-              unitPosition == UnitPosition.suffix ? radius : Radius.zero,
+          bottomRight: unitPosition == UnitPosition.suffix
+              ? radius
+              : Radius.zero,
         ),
       ),
       child: Center(child: Text(unitLabel, style: labelStyle)),

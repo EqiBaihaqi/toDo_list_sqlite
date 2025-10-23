@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:getx_pattern_architecture/app/core/app_colors.dart';
 import 'package:intl/intl.dart';
+import 'package:todo_list_sqlite/app/core/app_colors.dart';
 
 String formatDateTime(DateTime dateTime) {
   return DateFormat('EEEE, dd/MM/yyyy HH:mm', 'id_ID').format(dateTime);
@@ -8,8 +8,13 @@ String formatDateTime(DateTime dateTime) {
 
 String formatTime(TimeOfDay time) {
   final now = DateTime.now();
-  final dateTime =
-      DateTime(now.year, now.month, now.day, time.hour, time.minute);
+  final dateTime = DateTime(
+    now.year,
+    now.month,
+    now.day,
+    time.hour,
+    time.minute,
+  );
   return DateFormat('HH:mm', 'id_ID').format(dateTime);
 }
 
@@ -22,15 +27,27 @@ String formatDuration(Duration duration) {
 
 Duration calculateDuration(TimeOfDay start, TimeOfDay end) {
   final now = DateTime.now();
-  final startDateTime =
-      DateTime(now.year, now.month, now.day, start.hour, start.minute);
-  final endDateTime =
-      DateTime(now.year, now.month, now.day, end.hour, end.minute);
+  final startDateTime = DateTime(
+    now.year,
+    now.month,
+    now.day,
+    start.hour,
+    start.minute,
+  );
+  final endDateTime = DateTime(
+    now.year,
+    now.month,
+    now.day,
+    end.hour,
+    end.minute,
+  );
   return endDateTime.difference(startDateTime);
 }
 
-Future<DateTime?> pickDateTime(BuildContext context,
-    {DateTime? initialDate}) async {
+Future<DateTime?> pickDateTime(
+  BuildContext context, {
+  DateTime? initialDate,
+}) async {
   final DateTime? pickedDate = await showDatePicker(
     context: context,
     initialDate: initialDate ?? DateTime.now(),
@@ -45,9 +62,7 @@ Future<DateTime?> pickDateTime(BuildContext context,
             onSurface: AppColors.colorRed500,
           ),
           textButtonTheme: TextButtonThemeData(
-            style: TextButton.styleFrom(
-              foregroundColor: AppColors.colorRed500,
-            ),
+            style: TextButton.styleFrom(foregroundColor: AppColors.colorRed500),
           ),
         ),
         child: child!,
@@ -86,8 +101,10 @@ Future<DateTime?> pickDateTime(BuildContext context,
   return null;
 }
 
-Future<TimeOfDay?> pickTime(BuildContext context,
-    {TimeOfDay? initialTime}) async {
+Future<TimeOfDay?> pickTime(
+  BuildContext context, {
+  TimeOfDay? initialTime,
+}) async {
   return showTimePicker(
     context: context,
     initialTime: initialTime ?? TimeOfDay.now(),
@@ -106,8 +123,10 @@ Future<TimeOfDay?> pickTime(BuildContext context,
   );
 }
 
-Future<DateTime?> pickDate(BuildContext context,
-    {DateTime? initialDate}) async {
+Future<DateTime?> pickDate(
+  BuildContext context, {
+  DateTime? initialDate,
+}) async {
   final DateTime? pickedDate = await showDatePicker(
     context: context,
     initialDate: initialDate ?? DateTime.now(),
@@ -122,9 +141,7 @@ Future<DateTime?> pickDate(BuildContext context,
             onSurface: AppColors.colorRed500,
           ),
           textButtonTheme: TextButtonThemeData(
-            style: TextButton.styleFrom(
-              foregroundColor: AppColors.colorRed500,
-            ),
+            style: TextButton.styleFrom(foregroundColor: AppColors.colorRed500),
           ),
         ),
         child: child!,

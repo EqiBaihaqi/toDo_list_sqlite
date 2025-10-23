@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_pattern_architecture/app/style/style_color.dart';
+import 'package:todo_list_sqlite/app/style/style_color.dart';
 import '../../core/app_colors.dart';
 import '../../core/app_text_styles.dart';
 import 'custom_button.dart';

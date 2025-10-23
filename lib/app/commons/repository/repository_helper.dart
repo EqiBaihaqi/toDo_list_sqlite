@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart' show Response, DioException;
 import 'package:flutter/foundation.dart';
 import 'package:fpdart/fpdart.dart';
-import 'package:getx_pattern_architecture/app/models/pagination_result.dart';
+import 'package:todo_list_sqlite/app/models/pagination_result.dart';
 
 import '../network/dio_client.dart';
 import '../network/dio_exception.dart';

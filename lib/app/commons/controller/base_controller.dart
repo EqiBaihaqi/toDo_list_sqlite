@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:fpdart/fpdart.dart';
 
 import 'package:get/get.dart';
-import 'package:getx_pattern_architecture/app/commons/widgets/custom_dialog_notif.dart';
+import 'package:todo_list_sqlite/app/commons/widgets/custom_dialog_notif.dart';
 
 import '../../constant/constant_asset.dart';
 import '../widgets/custom_dialog_api_status.dart';
@@ -14,7 +14,7 @@ import '../widgets/custom_dialog_api_status.dart';
 enum ApiState {
   loading, // Status ini menunjukkan bahwa operasi API sedang berlangsung.
   failure, // Status ini menunjukkan bahwa operasi API gagal.
-  success // Status ini menunjukkan bahwa operasi API berhasil.
+  success, // Status ini menunjukkan bahwa operasi API berhasil.
 }
 
 /// Mixin yang menyediakan fungsi untuk mengelola data formulir dan melakukan operasi API dengan template umum.
@@ -84,7 +84,9 @@ mixin BaseController {
       barrierDismissible: false,
       builder: (BuildContext context) {
         return CustomDialogApiStatus(
-            type: DialogTypeApiStatus.loading, title: message);
+          type: DialogTypeApiStatus.loading,
+          title: message,
+        );
       },
     );
   }
@@ -116,8 +118,13 @@ mixin BaseController {
     );
   }
 
-  void showSuccess(BuildContext context, String message,
-      {String? title, VoidCallback? onButtonPressed, String? buttonText}) {
+  void showSuccess(
+    BuildContext context,
+    String message, {
+    String? title,
+    VoidCallback? onButtonPressed,
+    String? buttonText,
+  }) {
     hideLoading(context);
 
     showDialog(

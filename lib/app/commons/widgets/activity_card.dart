@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:getx_pattern_architecture/app/style/style_color.dart';
 import 'package:intl/intl.dart';
+import 'package:todo_list_sqlite/app/style/style_color.dart';
 
 enum ActivityCardType { submissionData, transactionMonitoring }
 
@@ -45,7 +45,7 @@ class ActivityCard extends StatelessWidget {
   });
 
   static final Map<ActivityCardType, Map<String, Map<String, dynamic>>>
-      statusStyles = {
+  statusStyles = {
     ActivityCardType.submissionData: {
       'submitted': {'color': CustomColor.blue500, 'text': 'Submitted'},
       'approved': {'color': CustomColor.green500, 'text': 'Approved'},
@@ -54,7 +54,7 @@ class ActivityCard extends StatelessWidget {
       'raw leads': {'color': CustomColor.purple500, 'text': 'Raw Leads'},
       'potential leads': {
         'color': CustomColor.cyan500,
-        'text': 'Potential Leads'
+        'text': 'Potential Leads',
       },
       'introduction': {'color': CustomColor.orange500, 'text': 'Introduction'},
     },
@@ -71,10 +71,10 @@ class ActivityCard extends StatelessWidget {
 
     final formattedDate =
         (type == ActivityCardType.submissionData && submissionDateTime != null)
-            ? DateFormat('d MMMM yyyy').format(submissionDateTime!)
-            : (transactionDateTime != null)
-                ? DateFormat('d MMMM yyyy').format(transactionDateTime!)
-                : '-';
+        ? DateFormat('d MMMM yyyy').format(submissionDateTime!)
+        : (transactionDateTime != null)
+        ? DateFormat('d MMMM yyyy').format(transactionDateTime!)
+        : '-';
 
     final uploadTime = (type == ActivityCardType.submissionData)
         ? (uploadTimeSubmission ?? '')
@@ -132,11 +132,15 @@ class ActivityCard extends StatelessWidget {
                     ),
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 12, vertical: 4),
+                        horizontal: 12,
+                        vertical: 4,
+                      ),
                       child: Text(
                         style['text'],
-                        style:
-                            const TextStyle(color: Colors.white, fontSize: 12),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                        ),
                       ),
                     ),
                   ),
@@ -150,7 +154,9 @@ class ActivityCard extends StatelessWidget {
               ] else ...[
                 _buildInfoRow('Company Name', companyNameTransaction ?? '-'),
                 _buildInfoRow(
-                    'Business Scale', businessScaleTransaction ?? '-'),
+                  'Business Scale',
+                  businessScaleTransaction ?? '-',
+                ),
                 _buildInfoRow('Product Type', productType ?? '-'),
               ],
               const SizedBox(height: 16),
@@ -160,14 +166,17 @@ class ActivityCard extends StatelessWidget {
                   Container(
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
-                          colors: [Color(0xFFA31AF2), Color(0xFF1874A5)]),
+                        colors: [Color(0xFFA31AF2), Color(0xFF1874A5)],
+                      ),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: InkWell(
                       onTap: onTapDetail,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 6),
+                          horizontal: 16,
+                          vertical: 6,
+                        ),
                         child: Text(
                           descriptionButton ?? 'Detail Information',
                           style: const TextStyle(
@@ -182,7 +191,9 @@ class ActivityCard extends StatelessWidget {
                   Text(
                     uploadTime,
                     style: const TextStyle(
-                        color: CustomColor.netral6, fontSize: 10),
+                      color: CustomColor.netral6,
+                      fontSize: 10,
+                    ),
                   ),
                 ],
               ),
@@ -199,17 +210,21 @@ class ActivityCard extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-              flex: 3,
-              child: Text(label,
-                  style:
-                      const TextStyle(color: Color(0xFF8C8C8C), fontSize: 12))),
+            flex: 3,
+            child: Text(
+              label,
+              style: const TextStyle(color: Color(0xFF8C8C8C), fontSize: 12),
+            ),
+          ),
           const Text(" : "),
           const SizedBox(width: 6),
           Expanded(
-              flex: 3,
-              child: Text(value,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.w600, fontSize: 12))),
+            flex: 3,
+            child: Text(
+              value,
+              style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+            ),
+          ),
         ],
       ),
     );
